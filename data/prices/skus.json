@@ -1,0 +1,60 @@
+{
+  "_comment": "Maps each BOM component to a short list of representative SKUs/product IDs per store. SKUs below are PLACEHOLDERS -- replace with real product IDs found by searching homedepot.com / lowes.com for a given zip (El Paso: 79901, 79912, 79924, 79928, 79936 cover most store catchments) and copying the product page's item/model number. One or two representative SKUs per component is enough; this is a price index, not a full material list.",
+  "components": {
+    "slab_concrete_cy": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "Quikrete 80lb concrete mix (per bag, convert to cy)", "unit": "bag"},
+      {"store": "lowes", "sku": "REPLACE_ME", "desc": "Quikrete 80lb concrete mix", "unit": "bag"}
+    ],
+    "lumber_board_ft": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "2x4x8 SPF stud", "unit": "each"},
+      {"store": "lowes", "sku": "REPLACE_ME", "desc": "2x4x8 SPF stud", "unit": "each"}
+    ],
+    "osb_sheathing_sheets_4x8": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "7/16in OSB sheathing 4x8", "unit": "sheet"},
+      {"store": "lowes", "sku": "REPLACE_ME", "desc": "7/16in OSB sheathing 4x8", "unit": "sheet"}
+    ],
+    "shingle_squares": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "3-tab or architectural shingle bundle", "unit": "bundle"},
+      {"store": "lowes", "sku": "REPLACE_ME", "desc": "architectural shingle bundle", "unit": "bundle"}
+    ],
+    "windows_count": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "vinyl single-hung window, standard size", "unit": "each"}
+    ],
+    "exterior_doors_count": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "steel entry door slab", "unit": "each"}
+    ],
+    "garage_door_count": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "16x7 steel garage door", "unit": "each"}
+    ],
+    "wall_batts_sqft": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "R-13 fiberglass batt, covers X sqft/bag", "unit": "bag"}
+    ],
+    "sheets_4x12": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "1/2in drywall 4x12", "unit": "sheet"}
+    ],
+    "romex_12_2_ft": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "12-2 NM-B romex, per ft (sold by roll, convert)", "unit": "roll"}
+    ],
+    "pex_or_copper_ft": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "1/2in PEX tubing, per ft (sold by roll, convert)", "unit": "roll"}
+    ],
+    "toilets_count": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "standard two-piece toilet", "unit": "each"}
+    ],
+    "water_heater_count": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "40-50 gal gas water heater", "unit": "each"}
+    ],
+    "split_system_tons": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "central A/C split system, per ton (price scales)", "unit": "system"}
+    ],
+    "tile_sqft": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "ceramic floor tile, per sqft box", "unit": "box"}
+    ],
+    "carpet_or_lvp_sqft": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "LVP flooring, per sqft box", "unit": "box"}
+    ],
+    "range_count": [
+      {"store": "home_depot", "sku": "REPLACE_ME", "desc": "standard 30in freestanding range", "unit": "each"}
+    ]
+  }
+}

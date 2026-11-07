@@ -1,0 +1,387 @@
+#!/usr/bin/env python3
+"""Builds site/index.html -- a self-contained dashboard (Chart.js) in the "Highlighter" theme:
+flat marker-bright colors, thick black outlines, chunky display type, sticker-style toggle
+buttons and a dial-style range control, hand-drawn-ish construction iconography (hammer, house,
+brick course, measuring tape). Embeds:
+ - data/cost_history.json (aggregate + disaggregated hard-cost totals over time, per tier)
+ - data/mls_quarterly_ppsf.json (countywide median $/sqft, closed sales -- reference, NOT
+   new-construction-specific; see README)
+Run after scripts/compute_costs.py whenever the cost history changes.
+"""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+def load(path):
+    return json.loads((ROOT / path).read_text())
+
+cost_history = load("data/cost_history.json")
+mls_ppsf = load("data/mls_quarterly_ppsf.json")
+
+has_sample = any(r.get("is_sample_data") for r in cost_history)
+
+TEMPLATE = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hard Hat Index &mdash; El Paso Construction Costs</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow:   #FFD93D;
+    --pink:     #FF5C8A;
+    --blue:     #4DD0E1;
+    --orange:   #FF8A3D;
+    --green:    #6FCF6F;
+    --ink:      #16181D;
+    --paper:    #FFF8EC;
+    --paper-2:  #FFFFFF;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    margin: 0;
+    padding: 0 16px 60px;
+    background-image:
+      radial-gradient(circle at 8% 10%, rgba(255,217,61,0.35) 0, transparent 35%),
+      radial-gradient(circle at 92% 18%, rgba(77,208,225,0.3) 0, transparent 40%);
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; }
+
+  header { padding: 36px 0 18px; text-align: center; }
+  h1 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+    -webkit-text-stroke: 2px var(--ink);
+    color: var(--yellow);
+    text-shadow: 4px 4px 0 var(--ink);
+  }
+  .subtitle { font-size: 1.05rem; max-width: 640px; margin: 0 auto; color: #3a3a3a; }
+
+  .banner {
+    background: var(--pink); color: var(--paper-2); border: 3px solid var(--ink);
+    border-radius: 14px; padding: 10px 16px; margin: 18px 0; font-weight: 600;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .icon-row { display: flex; justify-content: center; gap: 22px; margin: 18px 0 8px; flex-wrap: wrap; }
+  .icon-row svg { width: 40px; height: 40px; }
+
+  .card {
+    background: var(--paper-2);
+    border: 3px solid var(--ink);
+    border-radius: 18px;
+    padding: 22px 24px;
+    margin-bottom: 26px;
+    box-shadow: 7px 7px 0 var(--ink);
+    position: relative;
+  }
+  .card h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 1.15rem;
+    margin: 0 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .card h2 svg { width: 26px; height: 26px; flex: none; }
+
+  /* Sticker-style toggle buttons for selecting tier */
+  .toggle-group { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
+  .toggle-btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 9px 16px;
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    background: var(--paper);
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.08s ease;
+    color: var(--ink);
+  }
+  .toggle-btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--ink); }
+  .toggle-btn.active[data-tier="tier1_1500sqft_1story"] { background: var(--blue); }
+  .toggle-btn.active[data-tier="tier2_2000sqft_2story"] { background: var(--orange); }
+  .toggle-btn.active { transform: translate(1px,1px); box-shadow: 1px 1px 0 var(--ink); }
+
+  /* Dial / knob control for picking the snapshot date on the category chart */
+  .dial-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .dial-label { font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
+  input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 6px;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 2px, var(--yellow) 2px 14px);
+    border: 2px solid var(--ink);
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--pink); border: 3px solid var(--ink);
+    cursor: grab; box-shadow: 2px 2px 0 var(--ink);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--pink); border: 3px solid var(--ink); cursor: grab;
+  }
+  .dial-value {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 0.85rem;
+    background: var(--green);
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+
+  .stat-row { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 8px; }
+  .stat {
+    flex: 1; min-width: 160px;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 14px 16px;
+    background: var(--yellow);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .stat .v { font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; }
+  .stat .l { font-size: 0.78rem; margin-top: 2px; }
+  .stat.alt { background: var(--blue); }
+
+  canvas { max-width: 100%; }
+
+  footer { text-align: center; color: #6a6a6a; font-size: 0.8rem; margin-top: 10px; }
+  footer a { color: var(--pink); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>HARD HAT INDEX</h1>
+  <p class="subtitle">What it actually costs to build a house in El Paso, tracked component by
+  component, checked against what the market says homes are selling for.</p>
+  <div class="icon-row">
+    {ICON_HOUSE}{ICON_HAMMER}{ICON_BRICK}{ICON_TAPE}
+  </div>
+</header>
+
+{SAMPLE_BANNER}
+
+<div class="card">
+  <h2>{ICON_HOUSE_SM} Latest snapshot</h2>
+  <div class="toggle-group" id="tier-toggles"></div>
+  <div class="stat-row" id="latest-stats"></div>
+</div>
+
+<div class="card">
+  <h2>{ICON_HAMMER_SM} Hard cost per square foot over time</h2>
+  <canvas id="aggChart" height="110"></canvas>
+</div>
+
+<div class="card">
+  <h2>{ICON_BRICK_SM} Cost by component category</h2>
+  <div class="dial-wrap">
+    <span class="dial-label">SNAPSHOT:</span>
+    <input type="range" id="dateDial" min="0" max="0" value="0" step="1">
+    <span class="dial-value" id="dateDialValue">--</span>
+  </div>
+  <canvas id="catChart" height="110"></canvas>
+</div>
+
+<div class="card">
+  <h2>{ICON_TAPE_SM} Reference: countywide median sold $/sqft</h2>
+  <p style="font-size:0.85rem; margin-top:-6px; color:#555;">
+    All closed sales, El Paso County &mdash; not new-construction-only (the MLS export has no
+    new-construction flag; see README).</p>
+  <canvas id="mlsChart" height="90"></canvas>
+</div>
+
+<footer>
+  Hard-cost BOMs and sourcing caveats: <a href="README.md">README.md</a>.
+  MLS reference series from hoffmanap/MLSSales (12,803 closed sales, El Paso County).
+</footer>
+
+</div>
+
+<script>
+const costHistory = {COST_HISTORY_JSON};
+const mlsPpsf = {MLS_PPSF_JSON};
+
+const tierIds = [...new Set(costHistory.map(r => r.tier_id))];
+const dates = [...new Set(costHistory.map(r => r.snapshot_date))].sort();
+const tierColors = {"tier1_1500sqft_1story": "#4DD0E1", "tier2_2000sqft_2story": "#FF8A3D"};
+const tierLabels = {"tier1_1500sqft_1story": "1,500 sqft / 1-story", "tier2_2000sqft_2story": "2,000 sqft / 2-story"};
+
+let activeTiers = new Set(tierIds);
+
+// --- Sticker toggle buttons ---
+const toggleWrap = document.getElementById("tier-toggles");
+tierIds.forEach(t => {
+  const b = document.createElement("button");
+  b.className = "toggle-btn active";
+  b.dataset.tier = t;
+  b.textContent = tierLabels[t] || t;
+  b.onclick = () => {
+    if (activeTiers.has(t)) { activeTiers.delete(t); b.classList.remove("active"); }
+    else { activeTiers.add(t); b.classList.add("active"); }
+    renderAll();
+  };
+  toggleWrap.appendChild(b);
+});
+
+let aggChart, catChart, mlsChart;
+
+function renderAgg() {
+  const datasets = [...activeTiers].map(t => ({
+    label: tierLabels[t] || t,
+    data: dates.map(d => {
+      const r = costHistory.find(x => x.tier_id === t && x.snapshot_date === d);
+      return r ? r.cost_per_sqft : null;
+    }),
+    borderColor: tierColors[t] || "#333",
+    backgroundColor: (tierColors[t] || "#333") + "33",
+    borderWidth: 3,
+    pointRadius: 5,
+    pointBackgroundColor: tierColors[t] || "#333",
+    pointBorderColor: "#16181D",
+    pointBorderWidth: 2,
+    tension: 0.25,
+    fill: true,
+  }));
+  if (aggChart) aggChart.destroy();
+  aggChart = new Chart(document.getElementById("aggChart"), {
+    type: "line",
+    data: { labels: dates, datasets },
+    options: { scales: { y: { title: { display: true, text: "$/sqft (hard cost, materials only)" } } },
+               plugins: { legend: { labels: { font: { family: "Space Grotesk", weight: 700 } } } } }
+  });
+}
+
+function renderCat(dateIdx) {
+  const d = dates[dateIdx];
+  const rows = costHistory.filter(r => r.snapshot_date === d && activeTiers.has(r.tier_id));
+  const categories = [...new Set(rows.flatMap(r => Object.keys(r.by_category)))];
+  const datasets = rows.map(r => ({
+    label: tierLabels[r.tier_id] || r.tier_id,
+    data: categories.map(c => r.by_category[c] || 0),
+    backgroundColor: tierColors[r.tier_id] || "#333",
+    borderColor: "#16181D",
+    borderWidth: 2,
+    borderRadius: 6,
+  }));
+  if (catChart) catChart.destroy();
+  catChart = new Chart(document.getElementById("catChart"), {
+    type: "bar",
+    data: { labels: categories, datasets },
+    options: { scales: { y: { title: { display: true, text: "$ (materials)" } } },
+               plugins: { legend: { labels: { font: { family: "Space Grotesk", weight: 700 } } } } }
+  });
+}
+
+function renderMls() {
+  if (mlsChart) mlsChart.destroy();
+  mlsChart = new Chart(document.getElementById("mlsChart"), {
+    type: "line",
+    data: {
+      labels: mlsPpsf.map(r => r.quarter),
+      datasets: [{ label: "Median sold $/sqft (all closed sales)",
+                    data: mlsPpsf.map(r => r.median_ppsf),
+                    borderColor: "#FF5C8A", backgroundColor: "#FF5C8A22",
+                    borderWidth: 3, pointRadius: 4, pointBackgroundColor: "#FF5C8A",
+                    pointBorderColor: "#16181D", pointBorderWidth: 2, tension: 0.25, fill: true }]
+    },
+    options: { scales: { y: { title: { display: true, text: "$/sqft (sold)" } } },
+               plugins: { legend: { labels: { font: { family: "Space Grotesk", weight: 700 } } } } }
+  });
+}
+
+function renderStats() {
+  const latestDate = dates[dates.length - 1];
+  const statsEl = document.getElementById("latest-stats");
+  statsEl.innerHTML = "";
+  costHistory.filter(r => r.snapshot_date === latestDate && activeTiers.has(r.tier_id)).forEach((r, i) => {
+    const d = document.createElement("div");
+    d.className = "stat" + (i % 2 ? " alt" : "");
+    d.innerHTML = `<div class="v">$${r.cost_per_sqft.toFixed(2)}/sqft</div>
+                   <div class="l">${tierLabels[r.tier_id] || r.tier_id} &mdash; $${r.total_cost.toLocaleString()} total${r.is_sample_data ? ' <strong>[SAMPLE]</strong>' : ''}</div>`;
+    statsEl.appendChild(d);
+  });
+}
+
+function renderAll() {
+  renderAgg();
+  renderCat(parseInt(dial.value, 10));
+  renderStats();
+}
+
+const dial = document.getElementById("dateDial");
+dial.max = Math.max(0, dates.length - 1);
+dial.value = dial.max;
+const dialValue = document.getElementById("dateDialValue");
+function updateDialLabel() { dialValue.textContent = dates[parseInt(dial.value, 10)] || "--"; }
+dial.addEventListener("input", () => { updateDialLabel(); renderCat(parseInt(dial.value, 10)); });
+
+updateDialLabel();
+renderAll();
+renderMls();
+</script>
+</body>
+</html>
+"""
+
+banner = ""
+if has_sample:
+    banner = ('<div class="banner">SAMPLE DATA: this cost history includes at least one '
+               'placeholder-price snapshot. Numbers shown are for pipeline testing only until '
+               'replaced with a real price snapshot.</div>')
+
+# Hand-drawn-ish flat-color construction icons (inline SVG, two sizes each)
+ICON_HOUSE = '''<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 24 L24 8 L42 24" stroke="#16181D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#FFD93D"/>
+<rect x="11" y="24" width="26" height="18" fill="#FF8A3D" stroke="#16181D" stroke-width="3"/>
+<rect x="20" y="30" width="8" height="12" fill="#4DD0E1" stroke="#16181D" stroke-width="2.5"/>
+</svg>'''
+ICON_HAMMER = '''<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="18" width="7" height="26" rx="2" transform="rotate(35 23 31)" fill="#FF8A3D" stroke="#16181D" stroke-width="3"/>
+<rect x="6" y="6" width="22" height="12" rx="2" transform="rotate(-10 17 12)" fill="#4DD0E1" stroke="#16181D" stroke-width="3"/>
+</svg>'''
+ICON_BRICK = '''<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="4" y="10" width="18" height="10" fill="#FF5C8A" stroke="#16181D" stroke-width="2.5"/>
+<rect x="22" y="10" width="18" height="10" fill="#FFD93D" stroke="#16181D" stroke-width="2.5"/>
+<rect x="13" y="24" width="18" height="10" fill="#6FCF6F" stroke="#16181D" stroke-width="2.5"/>
+<rect x="31" y="24" width="12" height="10" fill="#4DD0E1" stroke="#16181D" stroke-width="2.5"/>
+<rect x="4" y="24" width="9" height="10" fill="#4DD0E1" stroke="#16181D" stroke-width="2.5"/>
+</svg>'''
+ICON_TAPE = '''<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="24" cy="24" r="18" fill="#FFD93D" stroke="#16181D" stroke-width="3"/>
+<circle cx="24" cy="24" r="7" fill="#FFF8EC" stroke="#16181D" stroke-width="3"/>
+<path d="M24 6 v6 M42 24 h-6 M24 42 v-6 M6 24 h6" stroke="#16181D" stroke-width="3" stroke-linecap="round"/>
+</svg>'''
+
+def small(svg):
+    return svg  # same markup; CSS controls size via .card h2 svg rule
+
+html = (TEMPLATE
+        .replace("{SAMPLE_BANNER}", banner)
+        .replace("{ICON_HOUSE}", ICON_HOUSE).replace("{ICON_HAMMER}", ICON_HAMMER)
+        .replace("{ICON_BRICK}", ICON_BRICK).replace("{ICON_TAPE}", ICON_TAPE)
+        .replace("{ICON_HOUSE_SM}", small(ICON_HOUSE)).replace("{ICON_HAMMER_SM}", small(ICON_HAMMER))
+        .replace("{ICON_BRICK_SM}", small(ICON_BRICK)).replace("{ICON_TAPE_SM}", small(ICON_TAPE))
+        .replace("{COST_HISTORY_JSON}", json.dumps(cost_history))
+        .replace("{MLS_PPSF_JSON}", json.dumps(mls_ppsf)))
+
+out_path = ROOT / "site" / "index.html"
+out_path.write_text(html)
+print(f"Wrote {out_path} ({len(html):,} bytes)")

@@ -1,0 +1,176 @@
+{
+  "tier_id": "tier1_1500sqft_1story",
+  "description": "Representative single-story 4bd/2ba El Paso spec home, slab-on-grade, wood-frame/stucco exterior",
+  "basis": "Floor-area tier validated against real MLS data: countywide closed-sale median sqft is 1,710 (P25=1,447, P75=2,104; n=12,803, hoffmanap/MLSSales source CSV). This tier (1,500 sqft) sits near the P25 mark. No new-construction flag exists in the MLS export, so this is all closed sales, not new-construction-only -- new builds in the current plan catalog sample skew slightly larger (1,300-2,350 sqft cluster). Component quantities are standard construction-estimating ratios (NAHB/RSMeans-style rules of thumb), NOT yet verified against an actual takeoff or invoice.",
+  "floor_area_sqft": 1500,
+  "stories": 1,
+  "beds": 4,
+  "baths": 2,
+  "garage_spaces": 2,
+  "components": {
+    "sitework_foundation": {
+      "slab_concrete_cy": {
+        "qty": 30,
+        "basis": "~0.02 cy/sqft, 4in slab + perimeter grade beam (El Paso slab-on-grade standard)"
+      },
+      "rebar_tons": {
+        "qty": 1.1,
+        "basis": "~1500 lb/1000 sqft slab reinforcement"
+      },
+      "termite_vapor_barrier_sqft": {
+        "qty": 1500
+      }
+    },
+    "framing": {
+      "lumber_board_ft": {
+        "qty": 18000,
+        "basis": "~12 bf/sqft wall+floor framing, stick-built"
+      },
+      "roof_trusses_squares": {
+        "qty": 19.5,
+        "basis": "roof area ~1.3x footprint for simple hip roof, in 100-sqft squares"
+      },
+      "osb_sheathing_sheets_4x8": {
+        "qty": 140,
+        "basis": "wall + roof sheathing"
+      }
+    },
+    "roofing": {
+      "shingle_squares": {
+        "qty": 19.5
+      },
+      "underlayment_rolls": {
+        "qty": 10
+      },
+      "flashing_ln_ft": {
+        "qty": 150
+      }
+    },
+    "exterior": {
+      "stucco_sqft": {
+        "qty": 1800,
+        "basis": "exterior wall area net of openings, perimeter ~160ft x 9ft wall - openings"
+      },
+      "windows_count": {
+        "qty": 10,
+        "basis": "typical 4bd/2ba El Paso spec plan"
+      },
+      "exterior_doors_count": {
+        "qty": 3,
+        "basis": "front, back/patio, garage service door"
+      },
+      "garage_door_count": {
+        "qty": 1,
+        "size": "16x7 double"
+      }
+    },
+    "insulation": {
+      "wall_batts_sqft": {
+        "qty": 1800
+      },
+      "attic_insulation_sqft": {
+        "qty": 1500
+      }
+    },
+    "drywall": {
+      "sheets_4x12": {
+        "qty": 110,
+        "basis": "~2.8x floor area in wall+ceiling surface / sheet coverage"
+      },
+      "joint_compound_buckets": {
+        "qty": 14
+      },
+      "tape_rolls": {
+        "qty": 8
+      }
+    },
+    "interior_doors_trim": {
+      "interior_doors_count": {
+        "qty": 9
+      },
+      "baseboard_ln_ft": {
+        "qty": 400
+      },
+      "casing_ln_ft": {
+        "qty": 350
+      }
+    },
+    "electrical": {
+      "romex_12_2_ft": {
+        "qty": 2400,
+        "basis": "~1.6 ft/sqft rule of thumb"
+      },
+      "outlets_count": {
+        "qty": 38
+      },
+      "switches_count": {
+        "qty": 22
+      },
+      "panel_count": {
+        "qty": 1,
+        "size": "200A"
+      },
+      "light_fixtures_count": {
+        "qty": 18
+      }
+    },
+    "plumbing": {
+      "pex_or_copper_ft": {
+        "qty": 450
+      },
+      "toilets_count": {
+        "qty": 2
+      },
+      "sinks_count": {
+        "qty": 4,
+        "basis": "2 bath + kitchen + laundry"
+      },
+      "tub_shower_units_count": {
+        "qty": 2
+      },
+      "water_heater_count": {
+        "qty": 1
+      }
+    },
+    "hvac": {
+      "split_system_tons": {
+        "qty": 2.5,
+        "basis": "~1 ton per 600 sqft, El Paso hot-dry climate"
+      },
+      "ductwork_ln_ft": {
+        "qty": 180
+      }
+    },
+    "flooring": {
+      "tile_sqft": {
+        "qty": 500,
+        "basis": "kitchen, baths, entry, utility"
+      },
+      "carpet_or_lvp_sqft": {
+        "qty": 1000
+      }
+    },
+    "cabinets_countertops": {
+      "kitchen_cabinets_ln_ft": {
+        "qty": 24
+      },
+      "kitchen_countertop_sqft": {
+        "qty": 40
+      },
+      "bath_vanities_count": {
+        "qty": 2
+      }
+    },
+    "appliances": {
+      "range_count": {
+        "qty": 1
+      },
+      "dishwasher_count": {
+        "qty": 1
+      },
+      "microwave_hood_count": {
+        "qty": 1
+      }
+    }
+  }
+}

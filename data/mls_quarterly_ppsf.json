@@ -1,0 +1,32 @@
+[
+  {
+    "quarter": "2024-Q2",
+    "median_ppsf": 155.99,
+    "n": 2376
+  },
+  {
+    "quarter": "2024-Q3",
+    "median_ppsf": 156.57,
+    "n": 2257
+  },
+  {
+    "quarter": "2024-Q4",
+    "median_ppsf": 159.26,
+    "n": 2261
+  },
+  {
+    "quarter": "2025-Q1",
+    "median_ppsf": 157.75,
+    "n": 1939
+  },
+  {
+    "quarter": "2025-Q2",
+    "median_ppsf": 159.51,
+    "n": 2404
+  },
+  {
+    "quarter": "2025-Q3",
+    "median_ppsf": 159.36,
+    "n": 1546
+  }
+]

@@ -1,0 +1,173 @@
+{
+  "tier_id": "tier2_2000sqft_2story",
+  "description": "Representative two-story 4bd/2.5ba El Paso spec home, slab-on-grade, wood-frame/stucco exterior",
+  "basis": "Floor-area tier validated against real MLS data: countywide closed-sale median sqft is 1,710 (P25=1,447, P75=2,104; n=12,803, hoffmanap/MLSSales source CSV). This tier (2,000 sqft) sits near the P75 mark. No new-construction flag exists in the MLS export, so this is all closed sales, not new-construction-only -- new builds in the current plan catalog sample skew slightly larger (1,300-2,350 sqft cluster). Component quantities are standard construction-estimating ratios (NAHB/RSMeans-style rules of thumb), NOT yet verified against an actual takeoff or invoice.",
+  "floor_area_sqft": 2000,
+  "stories": 2,
+  "beds": 4,
+  "baths": 2.5,
+  "garage_spaces": 2,
+  "components": {
+    "sitework_foundation": {
+      "slab_concrete_cy": {
+        "qty": 22,
+        "basis": "footprint ~1050 sqft (half of 2000sf two-story), ~0.021 cy/sqft slab+grade beam"
+      },
+      "rebar_tons": {
+        "qty": 0.8
+      },
+      "termite_vapor_barrier_sqft": {
+        "qty": 1050
+      }
+    },
+    "framing": {
+      "lumber_board_ft": {
+        "qty": 26000,
+        "basis": "~13 bf/sqft, two-story adds floor framing between levels"
+      },
+      "roof_trusses_squares": {
+        "qty": 14,
+        "basis": "roof area ~1.3x footprint (1050 sqft footprint)"
+      },
+      "osb_sheathing_sheets_4x8": {
+        "qty": 190
+      }
+    },
+    "roofing": {
+      "shingle_squares": {
+        "qty": 14
+      },
+      "underlayment_rolls": {
+        "qty": 7
+      },
+      "flashing_ln_ft": {
+        "qty": 130
+      }
+    },
+    "exterior": {
+      "stucco_sqft": {
+        "qty": 2600,
+        "basis": "two stories of exterior wall area net of openings"
+      },
+      "windows_count": {
+        "qty": 14
+      },
+      "exterior_doors_count": {
+        "qty": 3
+      },
+      "garage_door_count": {
+        "qty": 1,
+        "size": "16x7 double"
+      }
+    },
+    "insulation": {
+      "wall_batts_sqft": {
+        "qty": 2600
+      },
+      "attic_insulation_sqft": {
+        "qty": 1050
+      },
+      "floor_between_levels_sqft": {
+        "qty": 950,
+        "basis": "sound/thermal batt between floors, optional in some specs"
+      }
+    },
+    "drywall": {
+      "sheets_4x12": {
+        "qty": 150
+      },
+      "joint_compound_buckets": {
+        "qty": 19
+      },
+      "tape_rolls": {
+        "qty": 11
+      }
+    },
+    "interior_doors_trim": {
+      "interior_doors_count": {
+        "qty": 11
+      },
+      "baseboard_ln_ft": {
+        "qty": 520
+      },
+      "casing_ln_ft": {
+        "qty": 460
+      }
+    },
+    "electrical": {
+      "romex_12_2_ft": {
+        "qty": 3400
+      },
+      "outlets_count": {
+        "qty": 48
+      },
+      "switches_count": {
+        "qty": 30
+      },
+      "panel_count": {
+        "qty": 1,
+        "size": "200A"
+      },
+      "light_fixtures_count": {
+        "qty": 24
+      }
+    },
+    "plumbing": {
+      "pex_or_copper_ft": {
+        "qty": 600,
+        "basis": "additional vertical runs for second floor"
+      },
+      "toilets_count": {
+        "qty": 3
+      },
+      "sinks_count": {
+        "qty": 5
+      },
+      "tub_shower_units_count": {
+        "qty": 3
+      },
+      "water_heater_count": {
+        "qty": 1
+      }
+    },
+    "hvac": {
+      "split_system_tons": {
+        "qty": 3.5,
+        "basis": "~1 ton per ~570 sqft; may be 2-zone for 2-story"
+      },
+      "ductwork_ln_ft": {
+        "qty": 260
+      }
+    },
+    "flooring": {
+      "tile_sqft": {
+        "qty": 650
+      },
+      "carpet_or_lvp_sqft": {
+        "qty": 1350
+      }
+    },
+    "cabinets_countertops": {
+      "kitchen_cabinets_ln_ft": {
+        "qty": 28
+      },
+      "kitchen_countertop_sqft": {
+        "qty": 48
+      },
+      "bath_vanities_count": {
+        "qty": 3
+      }
+    },
+    "appliances": {
+      "range_count": {
+        "qty": 1
+      },
+      "dishwasher_count": {
+        "qty": 1
+      },
+      "microwave_hood_count": {
+        "qty": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+name: Rebuild cost history and dashboard
+
+# Runs whenever a new/edited price snapshot lands in data/prices/, or manually. Recomputes
+# aggregate + disaggregated costs for every BOM tier against every snapshot present, rebuilds
+# site/index.html, and commits the results (and publishes via GitHub Pages if enabled on the repo).
+on:
+  push:
+    paths:
+      - "data/prices/*.json"
+      - "data/boms/*.json"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Recompute cost history for every snapshot
+        run: |
+          for f in data/prices/*.json; do
+            [ "$(basename "$f")" = "skus.json" ] && continue
+            python3 scripts/compute_costs.py "$f"
+          done
+
+      - name: Rebuild dashboard
+        run: python3 scripts/build_site.py
+
+      - name: Commit updated data + site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/cost_history.json data/cost_history.csv site/index.html
+          git diff --cached --quiet || git commit -m "Rebuild cost history + dashboard [automated]"
+          git push

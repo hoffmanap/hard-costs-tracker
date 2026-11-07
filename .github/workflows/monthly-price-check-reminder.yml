@@ -1,0 +1,50 @@
+name: Monthly price-check reminder
+
+# Home Depot / Lowe's block unattended scraping (see README), so this workflow automates the one
+# part that IS reliable: opening a tracking issue every month with the exact SKU checklist from
+# data/prices/skus.json, so a human (or a browser-assisted Claude session) fills in real prices.
+on:
+  schedule:
+    - cron: "0 15 1 * *"   # 1st of each month, 15:00 UTC (~8am MT)
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+
+jobs:
+  open-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build checklist body from skus.json
+        id: body
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_OUTPUT"
+          import json, datetime
+          skus = json.load(open("data/prices/skus.json"))["components"]
+          lines = [f"## Price check for {datetime.date.today():%Y-%m}", "",
+                    "Look up each component at Home Depot / Lowe's (real SKU in `data/prices/skus.json`",
+                    "once filled in) and record `$/unit` into a new file at",
+                    "`data/prices/snapshot_YYYY-MM.json` (copy the SAMPLE file's structure).", ""]
+          for comp, stores in skus.items():
+              lines.append(f"- [ ] **{comp}**: " + "; ".join(
+                  f"{s['store']} #{s['sku']} ({s['desc']})" for s in stores))
+          body = "\n".join(lines)
+          print("body<<EOF_BODY")
+          print(body)
+          print("EOF_BODY")
+          EOF
+
+      - name: Create issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = `${{ steps.body.outputs.body }}`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Hard cost price check -- ${new Date().toISOString().slice(0,7)}`,
+              body,
+              labels: ["price-check"],
+            });

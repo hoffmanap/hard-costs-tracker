@@ -1,0 +1,50 @@
+[
+  {
+    "snapshot_date": "2026-11-01",
+    "tier_id": "tier1_1500sqft_1story",
+    "floor_area_sqft": 1500,
+    "total_cost": 82477.5,
+    "cost_per_sqft": 54.98,
+    "by_category": {
+      "sitework_foundation": 6140.0,
+      "framing": 25115.0,
+      "roofing": 3317.5,
+      "exterior": 17190.0,
+      "insulation": 1905.0,
+      "drywall": 2374.0,
+      "interior_doors_trim": 1985.0,
+      "electrical": 3231.0,
+      "plumbing": 2725.0,
+      "hvac": 5245.0,
+      "flooring": 3600.0,
+      "cabinets_countertops": 8240.0,
+      "appliances": 1410.0
+    },
+    "missing_components": [],
+    "is_sample_data": true
+  },
+  {
+    "snapshot_date": "2026-11-01",
+    "tier_id": "tier2_2000sqft_2story",
+    "floor_area_sqft": 2000,
+    "total_cost": 103493.5,
+    "cost_per_sqft": 51.75,
+    "by_category": {
+      "sitework_foundation": 4477.5,
+      "framing": 32960.0,
+      "roofing": 2421.0,
+      "exterior": 23630.0,
+      "insulation": 2707.5,
+      "drywall": 3236.5,
+      "interior_doors_trim": 2521.0,
+      "electrical": 4400.0,
+      "plumbing": 3585.0,
+      "hvac": 7415.0,
+      "flooring": 4790.0,
+      "cabinets_countertops": 9940.0,
+      "appliances": 1410.0
+    },
+    "missing_components": [],
+    "is_sample_data": true
+  }
+]
