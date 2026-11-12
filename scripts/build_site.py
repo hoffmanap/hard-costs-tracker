@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Builds site/index.html -- a self-contained dashboard (Chart.js) in the "Highlighter" theme:
+"""Builds index.html (repo root, for GitHub Pages serving from "/") -- a self-contained dashboard
+(Chart.js) in the "Highlighter" theme:
 flat marker-bright colors, thick black outlines, chunky display type, sticker-style toggle
 buttons and a dial-style range control, hand-drawn-ish construction iconography (hammer, house,
 brick course, measuring tape). Embeds:
@@ -382,6 +383,6 @@ html = (TEMPLATE
         .replace("{COST_HISTORY_JSON}", json.dumps(cost_history))
         .replace("{MLS_PPSF_JSON}", json.dumps(mls_ppsf)))
 
-out_path = ROOT / "site" / "index.html"
+out_path = ROOT / "index.html"
 out_path.write_text(html)
 print(f"Wrote {out_path} ({len(html):,} bytes)")
