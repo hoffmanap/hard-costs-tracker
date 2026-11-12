@@ -1,0 +1,17 @@
+{
+  "snapshot_date": "2026-11-01",
+  "source": "csv:skus_template.csv",
+  "prices_per_bom_unit": {
+    "exterior_doors_count": 169.0,
+    "garage_door_count": 1046.61,
+    "lumber_board_ft": 0.7463,
+    "osb_sheathing_sheets_4x8": 26.075,
+    "range_count": 599.0,
+    "sheets_4x12": 20.96,
+    "shingle_squares": 44.97,
+    "slab_concrete_cy": 269.1,
+    "toilets_count": 159.0,
+    "water_heater_count": 749.0,
+    "windows_count": 199.0
+  }
+}
