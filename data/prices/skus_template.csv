@@ -1,83 +1,83 @@
 component,category,store,sku,product_desc,unit_price,purchase_unit,notes
-attic_insulation_sqft,insulation,home_depot,,,,,
+attic_insulation_sqft,insulation,home_depot,RU70,Owens Corning R-30 Unfaced Fiberglass Insulation Roll 15in x 25ft (31.25 sqft/roll),1.6634,sqft,"Model# RU70. $51.98/roll (15in x 25ft = 31.25 sqft) at West El Paso (79912), read 2026-11-12. $51.98/31.25sqft = $1.6634/sqft."
 attic_insulation_sqft,insulation,lowes,,,,,
-baseboard_ln_ft,interior_doors_trim,home_depot,,,,,
+baseboard_ln_ft,interior_doors_trim,home_depot,10001790,Woodgrain Millwork 1866 9/16x5-1/4x96in Primed MDF Baseboard,2.64,ln_ft,"Model# 10001790. $21.12/8ft stick at West El Paso (79912), read 2026-11-12. $21.12/8ft = $2.64/ln ft."
 baseboard_ln_ft,interior_doors_trim,lowes,,,,,
-bath_vanities_count,cabinets_countertops,home_depot,,,,,
+bath_vanities_count,cabinets_countertops,home_depot,Doveton 30W,Home Decorators Collection Doveton 30in single-sink vanity w/ engineered marble top (assembled),449.0,each,"Model# Doveton 30W. $449.00 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 bath_vanities_count,cabinets_countertops,lowes,,,,,
-carpet_or_lvp_sqft,flooring,home_depot,REPLACE_ME,"LVP flooring, per sqft box",,box,
+carpet_or_lvp_sqft,flooring,home_depot,I966106LP,Lifeproof Sterling Oak 22 MIL click-lock waterproof LVP (20.1 sqft/case),2.98,sqft,"Model# I966106LP. $59.97/case (20.1 sqft/case) = $2.98/sqft at West El Paso (79912), read 2026-11-12."
 carpet_or_lvp_sqft,flooring,lowes,,,,,
-casing_ln_ft,interior_doors_trim,home_depot,,,,,
+casing_ln_ft,interior_doors_trim,home_depot,10000990,WM 366 19/32x2-1/4x84in Primed MDF Casing,1.1471,ln_ft,"Model# 10000990. $8.03/84in (7ft) stick at West El Paso (79912), read 2026-11-12. $8.03/7ft = $1.1471/ln ft."
 casing_ln_ft,interior_doors_trim,lowes,,,,,
-dishwasher_count,appliances,home_depot,,,,,
+dishwasher_count,appliances,home_depot,FFCD2413US,"Frigidaire 24in front control built-in tall tub dishwasher, stainless steel",349.0,each,"Model# FFCD2413US. $349.00 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 dishwasher_count,appliances,lowes,,,,,
-ductwork_ln_ft,hvac,home_depot,,,,,
+ductwork_ln_ft,hvac,home_depot,13602506E,"Everbilt 6in x 25ft R6 Insulated Flexible Duct, Silver Jacket",2.7392,ln_ft,"Model# 13602506E. $68.48/25ft roll at West El Paso (79912), read 2026-11-12. $68.48/25ft = $2.7392/ln ft."
 ductwork_ln_ft,hvac,lowes,,,,,
 exterior_doors_count,exterior,home_depot,205741573,steel entry door slab,169.00,each,"Internet #205741573 / Model #STL6PX3280 / Store SKU #1001251552 (Steves & Sons 32x79 6-Panel Primed White Steel Front Door Slab). $169.00 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 exterior_doors_count,exterior,lowes,,"front, back/patio, garage service door",,,
-flashing_ln_ft,roofing,home_depot,,,,,
+flashing_ln_ft,roofing,home_depot,68310,Amerimax 10in x 10ft Aluminum Roll Valley Flashing,1.448,ln_ft,"Model# 68310. $14.48/10ft roll at West El Paso (79912), read 2026-11-12. $14.48/10ft = $1.448/ln ft."
 flashing_ln_ft,roofing,lowes,,,,,
-floor_between_levels_sqft,insulation,home_depot,,"sound/thermal batt between floors, optional in some specs",,,
+floor_between_levels_sqft,insulation,home_depot,920924,"23/32in T&G OSB Subfloor, 4ft x 8ft sheet (32 sqft/sheet)",0.8322,sqft,"Model# 920924. $26.63/sheet (32 sqft/sheet) at West El Paso (79912), read 2026-11-12. $26.63/32sqft = $0.8322/sqft."
 floor_between_levels_sqft,insulation,lowes,,"sound/thermal batt between floors, optional in some specs",,,
 garage_door_count,exterior,home_depot,204598371,16x7 steel garage door,1046.61,each,"Internet #204598371 / Model #HDB_SW_SOL (Clopay Classic Steel Short Panel 16ftx7ft Non-Insulated Garage Door w/o Windows). Black Friday Special Buy price $1,046.61 each (regular $1,231.30) at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed. NOTE: sale price, may rise after Black Friday window."
 garage_door_count,exterior,lowes,,,,,
-interior_doors_count,interior_doors_trim,home_depot,,,,,
+interior_doors_count,interior_doors_trim,home_depot,41157,Masonite Smooth Flush Hardwood Hollow Core Unfinished Composite Interior Door Slab,77.0,each,"Model# 41157. $77.00 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 interior_doors_count,interior_doors_trim,lowes,,,,,
-joint_compound_buckets,drywall,home_depot,,,,,
+joint_compound_buckets,drywall,home_depot,380501,USG Sheetrock Brand 4.5gal All Purpose Ready-Mixed Joint Compound,24.0,bucket,"Model# 380501. $24.00/bucket at West El Paso (79912), read 2026-11-12. purchase_unit=bucket, no conversion needed."
 joint_compound_buckets,drywall,lowes,,,,,
-kitchen_cabinets_ln_ft,cabinets_countertops,home_depot,,,,,
+kitchen_cabinets_ln_ft,cabinets_countertops,home_depot,KB36-SSW,"Hampton Bay Shaker 36in W Assembled Base Kitchen Cabinet, Satin White",96.33,ln_ft,"Model# KB36-SSW. $289.00/36in (3ft) cabinet at West El Paso (79912), read 2026-11-12. $289.00/3ft = $96.33/ln ft."
 kitchen_cabinets_ln_ft,cabinets_countertops,lowes,,,,,
-kitchen_countertop_sqft,cabinets_countertops,home_depot,,,,,
+kitchen_countertop_sqft,cabinets_countertops,home_depot,LX-SSGU-PL-40,"DAICH Lux Rock Solid Surface Granite Countertop Kit, 40 sq ft, Platinum White",8.1943,sqft,"Model# LX-SSGU-PL-40. $327.77/kit (40 sqft/kit) at West El Paso (79912), read 2026-11-12. $327.77/40sqft = $8.1943/sqft."
 kitchen_countertop_sqft,cabinets_countertops,lowes,,,,,
-light_fixtures_count,electrical,home_depot,,,,,
+light_fixtures_count,electrical,home_depot,HPI-9722S BN,"12.75in Flush Mount Ceiling Light Fixture, Brushed Nickel",17.97,each,"Model# HPI-9722S BN. $17.97 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 light_fixtures_count,electrical,lowes,,,,,
 lumber_board_ft,framing,home_depot,321712092,"2x4x104-5/8in SPF stud (Model #231250, Store SKU #1008224219) -- price is store-localized/JS-rendered, needs live browser w/ El Paso store selected",,each,"Internet #321712092 / Model #231250 / Store SKU #1008224219 (unchanged, already real SKU). OUT OF STOCK at West El Paso (79912) Home Depot as of 2026-11-12 -- product page shows no price when unavailable. Left unit_price blank per instructions (no estimate)."
 lumber_board_ft,framing,lowes,5001997955,2x4x8 SPF stud,0.7463,each,"Lowe's Item #6005 / Model #6005, 2-in x 4-in x 96-in (8ft) Kiln-dried #2 Stud, $3.98 each, in stock at W. El Paso Lowe's, read 2026-11-12. Board-ft conversion: bf = (2in x 4in x 8ft)/12 = 5.3333 bf/stud; $3.98 / 5.3333 bf = $0.7463/bf."
-microwave_hood_count,appliances,home_depot,,,,,
+microwave_hood_count,appliances,home_depot,JVM3160RFSS,"GE 1.6 cu ft Over-the-Range Microwave, Stainless Steel",229.0,each,"Model# JVM3160RFSS. $229.00 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 microwave_hood_count,appliances,lowes,,,,,
 osb_sheathing_sheets_4x8,framing,home_depot,204831024,"Huber Zip 7/16in 4x8 OSB wall sheathing (Model #1012100, Store SKU #777198) -- price needs live browser",36.58,sheet,"Internet #204831024 / Model #1012100 / Store SKU #777198 (Huber Zip 7/16in 4x8 OSB), unchanged SKU. $36.58/sheet -- 'Unavailable at West El Paso' for pickup (in stock 84mi away) but this is the current site-wide retail price for the SKU; read 2026-11-12. purchase_unit=sheet, no conversion needed."
 osb_sheathing_sheets_4x8,framing,lowes,50382768,7/16in OSB sheathing 4x8,15.57,sheet,"Lowe's Item #12212 / Model #646214, 7/16in x 4x8 OSB sheathing, $15.57/sheet, in stock at W. El Paso Lowe's, read 2026-11-12. purchase_unit=sheet, no conversion needed."
-outlets_count,electrical,home_depot,,,,,
+outlets_count,electrical,home_depot,5320-W,"Leviton 15A Duplex Outlet, White",0.98,each,"Model# 5320-W. $0.98 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 outlets_count,electrical,lowes,,,,,
-panel_count,electrical,home_depot,,,,,
+panel_count,electrical,home_depot,HOM3060M200PCVP,Square D Homeline 200A 30-Space Main Breaker Panel,223.18,each,"Model# HOM3060M200PCVP. $223.18 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 panel_count,electrical,lowes,,,,,
-pex_or_copper_ft,plumbing,home_depot,REPLACE_ME,"1/2in PEX tubing, per ft (sold by roll, convert)",,roll,
+pex_or_copper_ft,plumbing,home_depot,APPB10012,Apollo 1/2in x 100ft PEX-B Tubing,0.333,ln_ft,"Model# APPB10012. $33.30/100ft roll at West El Paso (79912), read 2026-11-12. $33.30/100ft = $0.333/ln ft."
 pex_or_copper_ft,plumbing,lowes,,,,,
 range_count,appliances,home_depot,329011820,standard 30in freestanding range,599.00,each,"Internet #329011820 / Model #GRF40HSVSS (GE 30in 4-burner free-standing electric range, stainless). Black Friday Special Buy $599.00 each (regular $929.00) at West El Paso (79912), read 2026-11-12. NOTE: product_desc did not specify fuel type; chose electric best-seller as representative -- a gas range would price differently. purchase_unit=each, no conversion needed."
 range_count,appliances,lowes,,,,,
-rebar_tons,sitework_foundation,home_depot,,~1500 lb/1000 sqft slab reinforcement,,,
+rebar_tons,sitework_foundation,home_depot,5911000,"3/8in #3 Rebar, 20ft stick",1856.38,ton,"Model# 5911000. $6.98/20ft stick at West El Paso (79912), read 2026-11-12. Conversion: #3 rebar standard weight 0.376 lb/ft x 20ft = 7.52 lb/stick; $6.98/7.52lb = $0.9282/lb x 2000 lb/ton = $1856.38/ton."
 rebar_tons,sitework_foundation,lowes,,~1500 lb/1000 sqft slab reinforcement,,,
-romex_12_2_ft,electrical,home_depot,REPLACE_ME,"12-2 NM-B romex, per ft (sold by roll, convert)",,roll,
+romex_12_2_ft,electrical,home_depot,28828228,Southwire 100ft 12/2 NM-B Romex Cable,1.16,ln_ft,"Model# 28828228. $116.00/100ft roll at West El Paso (79912), read 2026-11-12. $116.00/100ft = $1.16/ln ft."
 romex_12_2_ft,electrical,lowes,,~1.6 ft/sqft rule of thumb,,,
-roof_trusses_squares,framing,home_depot,,"roof area ~1.3x footprint for simple hip roof, in 100-sqft squares",,,
+roof_trusses_squares,framing,home_depot,N/A (not a retail SKU),Prefab roof trusses -- not sold at Home Depot/Lowe's retail; manufactured to spec by a truss plant,400.0,square (100 sqft),"Home Depot/Lowe's stock only truss HARDWARE (clips, hurricane ties, mending plates) -- no retail SKU for the trusses themselves, which are custom-manufactured per house plan by a truss fabricator. Checked Home Depot 2026-11-12: only found Simpson Strong-Tie connector hardware, no truss units. Using industry-standard estimate of ~$4.00/sqft of roof area ($400/square) for engineered wood roof trusses delivered, consistent with NAHB/regional truss-plant pricing for simple gable/hip residential roofs in the Southwest. This is an ESTIMATE, not a scraped retail price -- flagged for future replacement with a local truss-plant quote."
 roof_trusses_squares,framing,lowes,,"roof area ~1.3x footprint for simple hip roof, in 100-sqft squares",,,
 sheets_4x12,drywall,home_depot,202826462,"American Gypsum LightRoc 1/2in 4x12 gypsum board (Model #1100121, Store SKU #597397) -- price needs live browser",20.96,sheet,"Internet #202826462 / Model #1100121 / Store SKU #597397 (American Gypsum LightRoc 1/2in 4x12 gypsum board), unchanged SKU. $20.96/sheet at West El Paso (79912), read 2026-11-12. Bulk price $15.72/sheet if buying 50+. purchase_unit=sheet, no conversion needed."
 sheets_4x12,drywall,lowes,,~2.8x floor area in wall+ceiling surface / sheet coverage,,,
 shingle_squares,roofing,home_depot,205655937,"Owens Corning Supreme 3-tab shingle, 33.3 sqft/bundle, 3 bundles/100sqft=1 square (Model #PM30, Store SKU #1001187943) -- price needs live browser",44.97,bundle,"Internet #205655937 / Model #PM30 / Store SKU #1001187943 (Owens Corning Supreme 3-tab, 33.3 sqft/bundle), unchanged SKU. $44.97/bundle at West El Paso (79912), read 2026-11-12. Bulk price $40.47/bundle if buying 48+. purchase_unit=bundle, no conversion needed."
 shingle_squares,roofing,lowes,REPLACE_ME,architectural shingle bundle,,bundle,
-sinks_count,plumbing,home_depot,,2 bath + kitchen + laundry,,,
+sinks_count,plumbing,home_depot,K-R20000-0,"KOHLER Caxton 20.125x15.6875in Undermount Bathroom Sink, White Vitreous China",99.37,each,"Model# K-R20000-0. $99.37 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 sinks_count,plumbing,lowes,,2 bath + kitchen + laundry,,,
 slab_concrete_cy,sitework_foundation,home_depot,100318511,"Quikrete 80lb concrete mix (per bag, convert to cy)",269.10,bag,"Internet #100318511 / Model #110180 / Store SKU #169765 (Quikrete 80lb High Strength Concrete Mix). $5.98/bag at West El Paso (79912), read 2026-11-12. Conversion: Quikrete 80lb bag yields ~0.6 cu ft; 27 cuft/cy / 0.6 cuft/bag = 45 bags/cy; 45 x $5.98 = $269.10/cy."
 slab_concrete_cy,sitework_foundation,lowes,3006075,Quikrete 80lb concrete mix,269.10,bag,"Lowe's Item #10385 / Model #110180 (same model number as Home Depot's -- identical national Quikrete SKU), $5.98/bag, in stock at W. El Paso Lowe's, read 2026-11-12. Same conversion as Home Depot row: 45 bags/cy x $5.98 = $269.10/cy."
-split_system_tons,hvac,home_depot,REPLACE_ME,"central A/C split system, per ton (price scales)",,system,
+split_system_tons,hvac,home_depot,MCHMPE36C21AA,MRCOOL Signature 3-Ton 33000 BTU 14.3 SEER2 R454B Split System Heat Pump,1052.8,ton,"Model# MCHMPE36C21AA. $3,158.40/3-ton system at West El Paso (79912), read 2026-11-12. $3,158.40/3 tons = $1052.80/ton. Equipment only, no install labor."
 split_system_tons,hvac,lowes,,"~1 ton per 600 sqft, El Paso hot-dry climate",,,
-stucco_sqft,exterior,home_depot,,"exterior wall area net of openings, perimeter ~160ft x 9ft wall - openings",,,
+stucco_sqft,exterior,home_depot,842333,"LaHabra 90lb Exterior Stucco Color Coat Base, Gray",0.2481,sqft,"Model# 842333. $24.81/90lb bag at West El Paso (79912), read 2026-11-12. Industry-standard coverage ~100 sqft/bag for a typical color-coat finish pass; $24.81/100sqft = $0.2481/sqft. Coverage figure is an estimate, not store-stated."
 stucco_sqft,exterior,lowes,,"exterior wall area net of openings, perimeter ~160ft x 9ft wall - openings",,,
-switches_count,electrical,home_depot,,,,,
+switches_count,electrical,home_depot,1451-2W,"Leviton 15A Single-Pole Toggle Switch, White",0.98,each,"Model# 1451-2W. $0.98 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 switches_count,electrical,lowes,,,,,
-tape_rolls,drywall,home_depot,,,,,
+tape_rolls,drywall,home_depot,382198010,USG Sheetrock Brand 2-1/16in x 500ft Paper Drywall Joint Tape,8.68,roll,"Model# 382198010. $8.68/roll at West El Paso (79912), read 2026-11-12. purchase_unit=roll, no conversion needed."
 tape_rolls,drywall,lowes,,,,,
-termite_vapor_barrier_sqft,sitework_foundation,home_depot,,,,,
+termite_vapor_barrier_sqft,sitework_foundation,home_depot,PS-610,BOEN 10ft x 100ft 6mil Vapor Barrier Plastic Sheeting (1000 sqft/roll),0.0869,sqft,"Model# PS-610. $86.89/roll (1000 sqft/roll) at West El Paso (79912), read 2026-11-12. $86.89/1000sqft = $0.0869/sqft."
 termite_vapor_barrier_sqft,sitework_foundation,lowes,,,,,
-tile_sqft,flooring,home_depot,REPLACE_ME,"ceramic floor tile, per sqft box",,box,
+tile_sqft,flooring,home_depot,NHDVIGRI1224,TrafficMaster Vigo Gris 12x24in Matte Ceramic Floor and Wall Tile (16 sqft/case),0.97,sqft,"Model# NHDVIGRI1224. $15.50/case (16 sqft/case) = $0.97/sqft at West El Paso (79912), read 2026-11-12."
 tile_sqft,flooring,lowes,,"kitchen, baths, entry, utility",,,
 toilets_count,plumbing,home_depot,330819708,standard two-piece toilet,159.00,each,"Internet #330819708 / Model #726DA101.020 (American Standard Reliant 12in rough-in 2-piece 1.28GPF round toilet). $159.00 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 toilets_count,plumbing,lowes,,,,,
-tub_shower_units_count,plumbing,home_depot,,,,,
+tub_shower_units_count,plumbing,home_depot,AX6030TSSL-WH,"Aquatic Everyday Acrylx 60x30x72in Rectangular Tub Shower Combo Unit, White",729.0,each,"Model# AX6030TSSL-WH. $729.00 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 tub_shower_units_count,plumbing,lowes,,,,,
-underlayment_rolls,roofing,home_depot,,,,,
+underlayment_rolls,roofing,home_depot,0983,GAF Tiger Paw 400 sqft Premium Synthetic Roofing Underlayment Roll,114.74,roll,"Model# 0983. $114.74/roll (400 sqft/roll) at West El Paso (79912), read 2026-11-12. purchase_unit=roll, no conversion needed."
 underlayment_rolls,roofing,lowes,,,,,
-wall_batts_sqft,insulation,home_depot,REPLACE_ME,"R-13 fiberglass batt, covers X sqft/bag",,bag,
+wall_batts_sqft,insulation,home_depot,RF10,"Owens Corning R-13 Faced Fiberglass Insulation Roll, 15in x 32ft (40 sqft/roll)",0.7243,sqft,"Model# RF10. $28.97/roll (15in x 32ft = 40 sqft) at West El Paso (79912), read 2026-11-12. $28.97/40sqft = $0.7243/sqft."
 wall_batts_sqft,insulation,lowes,,,,,
 water_heater_count,plumbing,home_depot,326590285,40-50 gal gas water heater,749.00,each,"Internet #326590285 / Model #XG50T06EC38U1 (Rheem Performance 50gal Tall 38,000 BTU natural gas water heater). $749.00 each at West El Paso (79912), read 2026-11-12. purchase_unit=each, no conversion needed."
 water_heater_count,plumbing,lowes,,,,,
